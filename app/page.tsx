@@ -1,16 +1,33 @@
-export default function Home() {
+
+import { Fragment } from 'react';
+import Link from 'next/link';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const HomePage: React.FC = () => {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">
-            github test
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            A modern marketing website: a website for peanut butter 
-          </p>
+    <Fragment>
+      <Header />
+      <main className='flex flex-col items-center justify-center min-h-screen py-2'>
+        <h1 className='text-6xl font-bold text-center text-yellow-500'>
+          Welcome to Peanut Butter World!
+        </h1>
+        <p className='mt-3 text-2xl text-center'>
+          Discover the best peanut butter recipes, products, and more.
+        </p>
+
+        <div className='flex mt-6'>
+          <Link href='/recipes'>
+            <a className='px-4 py-2 m-2 font-bold text-white bg-green-500 rounded hover:bg-green-700'>Explore Recipes</a>
+          </Link>
+          <Link href='/products'>
+            <a className='px-4 py-2 m-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700'>Shop Products</a>
+          </Link>
         </div>
-      </div>
-    </main>
-  )
-}
+      </main>
+      <Footer />
+    </Fragment>
+  );
+};
+
+export default HomePage;
